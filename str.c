@@ -29,4 +29,40 @@ int strcmp(const char *str1, const char *str2)
 	}
 }
 
+/**
+ * strlen - returns the lenght of a str.
+ * @str: str to count.
+ *
+ * Return: lenght of string.
+ */
+size_t strlen(const char *str)
+{
+	size_t len = 0;
 
+	while (str[len] != '\0')
+	{
+		len++;
+	}
+	return (len);
+}
+
+/**
+ * strcpy - returns the str copied.
+ * @dest: pointer to dest.
+ * @src: pointer to src.
+ *
+ * Return: the str copied.
+ */
+char *strcpy(char *dest, const char *src)
+{
+	size_t m = 0;
+
+	while (src[m] != '\0')
+	{
+		dest[m] = src[m];
+		m++;
+	}
+	dest[m] = '\0';
+
+	return (dest);
+}

@@ -10,6 +10,7 @@
 void *realloc(void *pointer, size_t size)
 {
 	void *newpointer;
+	size_t oldsize;
 
 	if (size == 0)
 	{
@@ -21,15 +22,39 @@ void *realloc(void *pointer, size_t size)
 
 	if (newpointer == NULL)
 	{
-		retrun (NULL);
+		return (NULL);
 	}
 
-	oldsize = pointer ? size_from_header(pointer) : 0;
-	copysize = oldsize < size ? oldsize : size;
-
-	memcpy(newpointer, pointer, copysize);
-
-	free(pointer);
-
+	if (newpointer != NULL)
+	{
+		oldsize = size;
+		if (size > oldsize)
+		{
+			oldsize = size;
+		}
+		memcpy(newpointer, pointer, oldsize);
+		free(pointer);
+	}
 	return (newpointer);
+}
+
+/**
+ * memcpy - a block of memory from one location to another.
+ * @dest: ptr to dest arr.
+ * @src: ptr to src.
+ * @n: num of bytes.
+ *
+ * Return: no return.
+ */
+void memcpy(void *dest, const void *src, size_t n)
+{
+	char *dst = dest;
+	const char *src = src;
+	size_t m;
+
+	for (m = 0; m < n; m++)
+	{
+		dst[m] = src[m];
+	}
+	return (dest);
 }
