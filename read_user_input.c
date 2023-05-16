@@ -5,8 +5,7 @@
  */
 char *read_user_input(void)
 {
-	char buff[1024];
-	char *point = NULL, *point1, pointlen = 0;
+	char buff[1024], *point = NULL, *point1, pointlen = 0;
 	int bufflen;
 
 	while (fgets(buff, 1024, stdin))
@@ -20,9 +19,7 @@ char *read_user_input(void)
 		{
 			point1 = realloc(point, pointlen + bufflen + 1);
 			if (point1)
-			{
 				point = point1;
-			}
 			else
 			{
 				free(point);
@@ -40,7 +37,7 @@ char *read_user_input(void)
 			if (bufflen == 1 || buff[bufflen - 2] != '\\')
 				return (point);
 
-			point[pointlen + bufflen -2] = '\0';
+			point[pointlen + bufflen - 2] = '\0';
 			bufflen -= 2;
 			print_shell_prompt1();
 		}
