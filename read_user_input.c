@@ -31,7 +31,7 @@ char *read_user_input(void)
 		}
 		if (!point)
 		{
-			fprintf(stderr, "error: failed to alloc buffer: %s\n", strerror(error));
+			perror("error: failed to alloc buffer");
 			return (NULL);
 		}
 		strcpy(point + pointlen, buff);
@@ -40,6 +40,7 @@ char *read_user_input(void)
 			if (bufflen == 1 || buff[bufflen - 2] != '\\')
 				return (point);
 
+			point[pointlen + bufflen -2] = '\0';
 			bufflen -= 2;
 			print_shell_prompt1();
 		}
