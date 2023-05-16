@@ -25,7 +25,7 @@ int strcmp(const char *str1, const char *str2)
 	}
 	else
 	{
-		return (str[m] - str2[m]);
+		return (str1[m] - str2[m]);
 	}
 }
 

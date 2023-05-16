@@ -10,6 +10,8 @@
 int main(int argc, char **argv)
 {
 	char *input;
+	(void)argc;
+	(void)argv;
 
 	while (1)
 	{
@@ -22,7 +24,7 @@ int main(int argc, char **argv)
 			exit(EXIT_SUCCESS);
 		}
 
-		if (input[0] == '\0' || strcmp(cmd, "\n") == 0)
+		if (input[0] == '\0' || strcmp(input, "\n") == 0)
 		{
 			free(input);
 			continue;
@@ -34,8 +36,8 @@ int main(int argc, char **argv)
 			break;
 		}
 
-		write(STDOUT, input, strlen(input));
-		write(STDOUT, "/n", 1)
+		write(STDOUT_FILENO, input, strlen(input));
+		write(STDOUT_FILENO, "/n", 1);
 
 		free(input);
 

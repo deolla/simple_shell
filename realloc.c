@@ -46,15 +46,15 @@ void *realloc(void *pointer, size_t size)
  *
  * Return: no return.
  */
-void memcpy(void *dest, const void *src, size_t n)
+void *memcpy(void *dest, const void *src, size_t n)
 {
 	char *dst = dest;
-	const char *src = src;
+	const char *source = src;
 	size_t m;
 
 	for (m = 0; m < n; m++)
 	{
-		dst[m] = src[m];
+		dst[m] = source[m];
 	}
 	return (dest);
 }
