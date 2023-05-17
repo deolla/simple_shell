@@ -28,7 +28,7 @@ char *read_user_input(void)
 		}
 		if (!point)
 		{
-			perror("error: failed to alloc buffer");
+			perror("Error: failed to alloc buffer");
 			return (NULL);
 		}
 		strcpy(point + pointlen, buff);
@@ -41,6 +41,7 @@ char *read_user_input(void)
 			bufflen -= 2;
 			print_shell_prompt1();
 		}
+
 		pointlen += bufflen;
 	}
 	return (point);

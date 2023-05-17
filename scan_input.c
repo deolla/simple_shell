@@ -62,13 +62,15 @@ char my_next_char(struct new_source *source)
  */
 char pick_char(struct new_source *source)
 {
-	long pos = source->new_post;
+	long pos;
 
 	if (!source || !source->boff)
 	{
 		errno = ENODATA;
 		return (ERROR_CHARACTER);
 	}
+
+	pos = source->new_post; 
 
 	if (pos == SOURCE_INIT_POINT)
 	{

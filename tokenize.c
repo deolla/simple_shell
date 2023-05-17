@@ -108,8 +108,8 @@ struct toks *tokinise(struct new_source *source)
 			return (&eof_tok);
 		}
 	}
-	buff_index_token  = 0;
-	buff_token[0]  = '\0';
+	buff_index_token    = 0;
+	buff_token[0]       = '\0';
 	f = my_next_char(source);
 	if (f == ERROR_CHARACTER || f == END_OF_FILE)
 	{
