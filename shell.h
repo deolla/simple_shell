@@ -17,6 +17,7 @@ struct new_source
 #include <error.h>
 #include <string.h>
 #include <unistd.h>
+#include <errno.h>
 
 /** STRING PROTOTYPE **/
 int strcmp(const char *str1, const char *str2);
@@ -33,4 +34,7 @@ void *realloc(void *pointer, size_t size);
 void *memcpy(void *dest, const void *src, size_t n);
 
 void get_last_char(struct new_source *source);
+char my_next_char(struct new_source *source);
+char pick_char(struct new_source *source);
+void ignore_spaces(struct new_source *source);
 #endif
