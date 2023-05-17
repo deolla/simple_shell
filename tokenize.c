@@ -6,7 +6,9 @@
  *
  * - input_len: struct variable.
  */
-struct toks eof_tok = {NULL, 0, NULL};
+struct toks eof_tok = {
+	NULL, 0, NULL
+};
 
 /**
  * include_buff - adds a single character to the token buffer.
@@ -67,7 +69,7 @@ struct toks *generate_token(char *st)
 }
 /**
  * free_all_toks - frees the memory used by a token structure.
- * @tokens: tokens.
+ * @token: tokens.
  *
  * Return: no return.
  */
@@ -138,7 +140,7 @@ struct toks *tokinise(struct new_source *source)
  */
 void process_chars(struct new_source *source, char f)
 {
-	int buff_index_token = -1, terminate_loop = 0; 
+	int buff_index_token = -1, terminate_loop = 0;
 
 	do {
 		switch (f)
