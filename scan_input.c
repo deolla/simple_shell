@@ -24,6 +24,7 @@ void get_last_char(struct new_source *source)
 char my_next_char(struct new_source *source)
 {
 	char c1 = 0;
+
 	if (!source || !source->boff)
 	{
 		errno = ENODATA;
@@ -46,7 +47,7 @@ char my_next_char(struct new_source *source)
 
 	if (++source->new_post >= source->boffsize)
 	{
-	       	source->new_post = source->boffsize;
+		source->new_post = source->boffsize;
 		return (END_OF_FILE);
 	}
 
@@ -70,7 +71,7 @@ char pick_char(struct new_source *source)
 		return (ERROR_CHARACTER);
 	}
 
-	pos = source->new_post; 
+	pos = source->new_post;
 
 	if (pos == SOURCE_INIT_POINT)
 	{
