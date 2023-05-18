@@ -1,14 +1,12 @@
 #include "shell.h"
 
 /**
- * struct toks - represent end of line.
- * eof_tok - represent the end of file.
- *
- * - input_len: struct variable.
+ * struct toks - end of file.
+ * eof_tok - end of file.
+ * @description - the end of file token.
  */
 struct toks eof_tok = {
-	NULL, 0, NULL
-};
+	NULL, 0, NULL};
 
 /**
  * include_buff - adds a single character to the token buffer.

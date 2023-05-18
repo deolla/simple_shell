@@ -7,7 +7,7 @@
  */
 void print_shell_prompt(void)
 {
-	fprintf(stderr, "$ ");
+	fprintf(stderr, "cindy$ ");
 }
 
 /**
@@ -17,5 +17,5 @@ void print_shell_prompt(void)
  */
 void print_shell_prompt1(void)
 {
-	fprintf(stderr, "> ");
+	fprintf(stderr, "seyi> ");
 }

@@ -37,9 +37,9 @@ struct new_source
  */
 struct toks
 {
-        struct new_source *source;
-        int input_len;
-        char *input;
+	struct new_source *source;
+	int input_len;
+	char *input;
 };
 
 extern struct toks eof_tok;
