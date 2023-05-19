@@ -3,6 +3,6 @@
 
 #include "shell.h"
 
-struct parsenode *parsing_simple_command(struct parsetoken *tok);
+struct node *parsing_simple_command(struct toks *token);
 
 #endif
