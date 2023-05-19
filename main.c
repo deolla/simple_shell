@@ -36,8 +36,12 @@ int main(int argc, char **argv)
 			break;
 		}
 
-		write(STDOUT_FILENO, input, strlen(input));
-		write(STDOUT_FILENO, "/n", 1);
+		struct source_s src;
+
+		src.buffer   = cmd;
+		src.bufsize  = strlen(cmd);
+		src.curpos   = INIT_SRC_POS;
+		parse_and_execute(&src);
 
 		free(input);
 
