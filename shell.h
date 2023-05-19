@@ -12,6 +12,9 @@
 #include <unistd.h>
 #include <errno.h>
 #include "parse.h"
+#include <sys/wait.h>
+#include <sys/stat.h>
+#include <errno.h>
 
 /**
  * struct new_source - source.
@@ -73,4 +76,8 @@ void set_token_source(struct toks *token, struct new_source *source);
 void include_buff(char k);
 struct toks *generate_token(char *st);
 
+/* Executing functions */
+char *find_path(char *doc);
+int implement_command(int argc, char **argv);
+int simple_command(struct node *snode);
 #endif
