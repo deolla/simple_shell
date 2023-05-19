@@ -1,4 +1,3 @@
-#include "parse.h"
 #include "shell.h"
 
 /**
@@ -11,7 +10,7 @@
 struct node *parsing_simple_command(struct toks *token)
 {
 	struct node *cmdnode;
-	struct sourceinfo *source;
+	struct new_source *source;
 	struct node *word;
 
 	if (!token)
@@ -19,13 +18,13 @@ struct node *parsing_simple_command(struct toks *token)
 		return (NULL);
 	}
 
-	cmdnode = new_node(COMMAND_NODE);
+	cmdnode = new_node(NODE_COMMAND);
 	if (!cmdnode)
 	{
 		free_all_toks(token);
 		return (NULL);
 	}
-	*source = token->source;
+	source = token->source;
 
 	do {
 		if (token->input[0] == '\n')
@@ -33,7 +32,7 @@ struct node *parsing_simple_command(struct toks *token)
 			free_all_toks(token);
 			break;
 		}
-		word = new_node(NODE_S)
+		word = new_node(NODE_S);
 		if (!word)
 		{
 			free_node(cmdnode);
@@ -45,7 +44,7 @@ struct node *parsing_simple_command(struct toks *token)
 
 		free_all_toks(token);
 
-	} while ((token = tokenise(source)) != &eof_tok);
+	} while ((token = tokinise(source)) != &eof_tok);
 
 	return (cmdnode);
 }
