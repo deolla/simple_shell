@@ -2,7 +2,7 @@
 
 /**
  * extract_path_segement - extract path segement
- * @doc: path where commands are stored.
+ * @path_ptr: path where commands are stored.
  *
  * Return: NULL or a pointer.
  */
@@ -32,7 +32,6 @@ char extract_path_segement(char **path_ptr)
 		{
 			(*path_ptr)++;
 		}
-
 		luv = malloc(bug + 1);
 		strncpy(luv, p, bug);
 		luv[p] = '\0';
@@ -42,7 +41,7 @@ char extract_path_segement(char **path_ptr)
 	return (NULL);
 }
 /**
- * find_file_in path - find cmd in path directoried.
+ * find_file_in_path - find cmd in path directoried.
  * @doc: file where cmd are storded.
  * @path: path to dir.
  *
@@ -127,4 +126,65 @@ int execute_cmd(int argc, char **argv)
 		free(path);
 	}
 	return (0);
+}
+
+/**
+ * simple_command - simple shell command.
+ * @snode: node.
+ *
+ * Return: 0 or 1 if failed.
+ */
+int simple_command(struct node *snode)
+{
+	struct node *child;
+	int argc, status = 0;
+	long max_args = 255;
+	char *argv[max_args + 1], *str;
+	pid_t child_pid = 0;
+
+	if (!snode)
+		return (0);
+	child = snode->first_child;
+	if (!child)
+		return (0);
+
+	while (child)
+	{
+		str = child->s.str;
+		argv[argc] = malloc(strlen(str) + 1);
+		if (!argc[argc])
+		{
+			free_argv(argc, argv);
+			return (0);
+		}
+		strcpy(argv[argc], str);
+		if (++argc >= max_args)
+			break;
+		child = child->next_sib;
+	}
+	argv[argc] = NULL;
+	child_pid = fork();
+	if (child_pid == 0)
+	{
+		execute_command(argc, argv);
+		perror();
+		if (errno == ENOEXEC)
+		{
+			EXIT(126);
+		}
+		else if (errno == ENOENT)
+		{
+			EXIT(127);
+		}
+		else
+			exit(EXIT_FAILURE);
+	}
+	else if (child_pid < 0)
+	{
+		fprintf(stderr, "error: failed to fork command: %s\n", strerror(errno));
+		return (0);
+	}
+	waitpid(child_pid, &status, 0);
+	free_argv(argc, argv);
+	return (1);
 }
