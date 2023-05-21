@@ -5,12 +5,15 @@
 #define ERROR_CHARACTER  (0)
 #define SOURCE_INIT_POINT (-2)
 
+#define MAX_ARGS 256
+extern char **environ;
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <error.h>
 #include <string.h>
 #include <unistd.h>
-#include <errno.h>
+#include <stddef.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <errno.h>
@@ -161,4 +164,9 @@ char *find_path(char *doc);
 int implement_command(int argc, char **argv);
 int simple_command(struct node *snode);
 int parse_and_execute(struct new_source *source);
+char *extract_path_segement(char **path_ptr);
+char *find_file_in_path(const char *doc, const char *path);
+static inline void free_argv(int argc, char **argv);
+int execute_simple_command(int argc, char **argv);
+int allocate_argument(struct node *child, int argc, char **argv);
 #endif
