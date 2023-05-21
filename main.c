@@ -9,6 +9,7 @@
  */
 int main(int argc, char **argv)
 {
+	struct new_source source;
 	char *input;
 	(void)argc;
 	(void)argv;
@@ -36,12 +37,10 @@ int main(int argc, char **argv)
 			break;
 		}
 
-		struct source_s src;
-
-		src.buffer   = cmd;
-		src.bufsize  = strlen(cmd);
-		src.curpos   = INIT_SRC_POS;
-		parse_and_execute(&src);
+		source.boff  = input;
+		source.boffsize  = strlen(input);
+		source.new_post  = SOURCE_INIT_POINT;
+		parse_and_execute(&source);
 
 		free(input);
 

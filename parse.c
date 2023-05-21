@@ -48,3 +48,41 @@ struct node *parsing_simple_command(struct toks *token)
 
 	return (cmdnode);
 }
+
+/**
+ * parse_and_execute - parses and executes simple commands from a given source.
+ * @source: a pointer to a struct representing the source.
+ *
+ * Return: 0 if there are no more tokens to process.
+ * 1 if the parse and execute process was successful.
+ */
+
+int parse_and_execute(struct new_source *source)
+{
+	struct toks *token;
+	struct node *cmdnode;
+
+	ignore_spaces(source);
+	token = tokinise(source);
+
+	if (token == &eof_tok)
+	{
+		return (0);
+	}
+
+	while (token && token != &eof_tok)
+	{
+		cmdnode = parsing_simple_command(token);
+
+		if (!cmdnode)
+		{
+			break;
+		}
+
+		simple_command(cmdnode);
+		free_node(cmdnode);
+		token = tokinise(source);
+	}
+
+	return (1);
+}

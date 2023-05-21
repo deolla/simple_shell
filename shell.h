@@ -160,4 +160,5 @@ struct toks *generate_token(char *st);
 char *find_path(char *doc);
 int implement_command(int argc, char **argv);
 int simple_command(struct node *snode);
+int parse_and_execute(struct new_source *source);
 #endif
