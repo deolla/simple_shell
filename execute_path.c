@@ -1,33 +1,6 @@
 #include "shell.h"
 
 /**
- * simple_command - simple shell command.
- * @snode: node.
- *
- * Return: int.
- */
-int simple_command(struct node *snode)
-{
-	struct node *child;
-	int argc = 0, result;
-	char *argv[MAX_ARGS + 1];
-
-	if (!snode)
-		return (0);
-	child = snode->first_child;
-	if (!child)
-		return (0);
-
-	if (!allocate_argument(child, argc, argv))
-		return (0);
-
-	result = execute_simple_command(argc, argv);
-	free_argv(argc, argv);
-
-	return (result);
-}
-
-/**
  * allocate_argument - allocate memory for command arguments.
  * @child: child node.
  * @argc: argument count.
@@ -94,6 +67,34 @@ int execute_simple_command(int argc, char **argv)
 	return (1);
 }
 
+/**
+ * simple_command - simple shell command.
+ * @snode: node.
+ *
+ * Return: int.
+ */
+int simple_command(struct node *snode)
+{
+	struct node *child;
+	int argc = 0, result;
+	char *argv[MAX_ARGS + 1];
+	
+	if(!snode)
+		return (0);
+	child = snode->first_child;
+	if (!child)
+	{
+		return (0);
+	}
+	if (!allocated_argument(child, argc, argv))
+	{
+		return (0);
+	}
+	result = execute_simple_command(argc, argv);
+	free_argv(argc, argv);
+	
+	return (result);
+}
 /**
  * free_argv - free array.
  * @argc: numbers of array of string.
