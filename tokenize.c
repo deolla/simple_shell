@@ -19,10 +19,21 @@ void include_buff(char k)
 	char *buff_token = NULL, *cont;
 	int buff_index_token = -1, buff_size_token = 0;
 
-	buff_token[buff_index_token++] = k;
+	if (buff_token == NULL)
+	{
+		buff_size_token = 1;
+		buff_token = malloc(buff_size_token * sizeof(char));
+		if (buff_token == NULL)
+		{
+			perror("Memory allocation failed");
+				return;
+		}
+	}
+	buff_token[++buff_index_token] = k;
 
 	if (buff_index_token >= buff_size_token)
 	{
+		buff_size_token *= 2;
 		cont = realloc(buff_token, buff_size_token * 2);
 
 		if (!cont)
@@ -31,7 +42,6 @@ void include_buff(char k)
 			return;
 		}
 		buff_token = cont;
-		buff_size_token *= 2;
 	}
 }
 /**

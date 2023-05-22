@@ -164,9 +164,9 @@ char *find_path(char *doc);
 int implement_command(int argc, char **argv);
 int simple_command(struct node *snode);
 int parse_and_execute(struct new_source *source);
-char *extract_path_segement(char **path_ptr);
+inline void free_argv(int argc, char **argv);
+char *extract_path_segement(const char **path_ptr);
 char *find_file_in_path(const char *doc, const char *path);
-static inline void free_argv(int argc, char **argv);
 int execute_simple_command(int argc, char **argv);
 int allocate_argument(struct node *child, int argc, char **argv);
 #endif

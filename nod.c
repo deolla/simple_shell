@@ -121,23 +121,3 @@ void free_node(struct node *snode)
 	}
 	free(snode);
 }
-
-/**
- * free_argv - free array.
- * @argc: numbers of array of string.
- * @argv: array of string.
- *
- * Return: no return.
- */
-static inline void free_argv(int argc, char **argv)
-{
-	if (!argc)
-	{
-		return;
-	}
-
-	while (argc--)
-	{
-		free(argv[argc]);
-	}
-}

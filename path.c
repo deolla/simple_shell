@@ -112,6 +112,9 @@ char *find_path(char *doc)
  */
 int implement_command(int argc, char **argv)
 {
+	char *path;
+	(void)argc;
+
 	if (strchr(argv[0], '/'))
 	{
 		execve(argv[0], argv, environ);

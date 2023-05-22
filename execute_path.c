@@ -93,3 +93,23 @@ int execute_simple_command(int argc, char **argv)
 	waitpid(child_pid, &status, 0);
 	return (1);
 }
+
+/**
+ * free_argv - free array.
+ * @argc: numbers of array of string.
+ * @argv: array of string.
+ *
+ * Return: no return.
+ */
+inline void free_argv(int argc, char **argv)
+{
+	if (!argc)
+	{
+		return;
+	}
+
+	while (argc--)
+	{
+		free(argv[argc]);
+	}
+}

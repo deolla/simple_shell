@@ -60,7 +60,7 @@ struct node *parsing_simple_command(struct toks *token)
 int parse_and_execute(struct new_source *source)
 {
 	struct toks *token;
-	struct node *cmdnode;
+	struct node *input;
 
 	ignore_spaces(source);
 	token = tokinise(source);
@@ -72,15 +72,15 @@ int parse_and_execute(struct new_source *source)
 
 	while (token && token != &eof_tok)
 	{
-		cmdnode = parsing_simple_command(token);
+		input = parsing_simple_command(token);
 
-		if (!cmdnode)
+		if (!input)
 		{
 			break;
 		}
 
-		simple_command(cmdnode);
-		free_node(cmdnode);
+		simple_command(input);
+		free_node(input);
 		token = tokinise(source);
 	}
 
