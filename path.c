@@ -6,7 +6,7 @@
  */
 char *find_path(char *doc)
 {
-	char *PATH = getenv("PATH"), *w = PATH, wa, pway;
+	char *PATH = getenv("PATH"), *w = PATH, *wa, pway;
 	int walp, apen;
 	struct stat st;
 
@@ -19,9 +19,14 @@ char *find_path(char *doc)
 		if (!walp)
 			walp = 1;
 		apen = strlen(doc);
+		pway[walp + 1 + apen + 1];
+		strncpy(pway, w, wa - w);
 		pway[wa - w] = '\0';
-		if (wa[-1]  != '/')
-			strcat(path, "/");
+		if (wa[-1] != '/')
+		{
+			strcat(pway, "/");
+		}
+
 		if (stat(pway, &st) == 0)
 		{
 			if (!S_ISREG(st.st_mode))
@@ -29,12 +34,16 @@ char *find_path(char *doc)
 				errno = ENOENT;
 				w = wa;
 				if (*wa == ':')
+				{
 					w++;
+				}
 				continue;
 			}
 			w = malloc(strlen(pway) + 1);
 			if (!w)
+			{
 				return (NULL);
+			}
 			strcpy(w, pway);
 			return (w);
 		}
