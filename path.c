@@ -126,7 +126,7 @@ int implement_command(int argc, char **argv)
 		{
 			return (0);
 		}
-		execve(path, argv, environ);
+		execv(path, argv);
 		free(path);
 	}
 	return (0);
