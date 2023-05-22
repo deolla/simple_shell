@@ -106,7 +106,7 @@ int simple_command(struct node *snode)
 	{
 		return (0);
 	}
-	if (!allocated_argument(child, argc, argv))
+	if (!allocate_argument(child, argc, argv))
 	{
 		return (0);
 	}
