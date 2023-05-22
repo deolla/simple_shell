@@ -1,26 +1,6 @@
 #include "shell.h"
 
 /**
- * free_argv - free array.
- * @argc: numbers of array of string.
- * @argv: array of string.
- *
- * Return: no return.
- */
-inline void free_argv(int argc, char **argv)
-{
-	if (!argc)
-	{
-		return;
-	}
-
-	while (argc--)
-	{
-		free(argv[argc]);
-	}
-}
-
-/**
  * allocate_argument - allocate memory for command arguments.
  * @child: child node.
  * @argc: argument count.
