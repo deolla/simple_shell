@@ -1,4 +1,4 @@
-#include "shell.h""
+#include "shell.h"
 
 /**
  * main - start of a function
@@ -9,6 +9,9 @@
  */
 int main(int argc, char **argv)
 {
+	(void)(argc);
+	(void)(**argv);
+
 	if (isatty(STDIN_FILENO) == 1)
 	{
 		interactive_mode();
