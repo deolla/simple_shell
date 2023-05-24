@@ -21,3 +21,17 @@ int my_cd(char **argv)
 	}
 	return (-1);
 }
+
+/**
+ * my_exit - terminates process
+ * @argv: empty argv
+ *
+ * Return: 0
+ */
+int my_exit(char **argv)
+{
+	if (argv[1])
+	{
+		return (0);
+	}
+}
