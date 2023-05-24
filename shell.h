@@ -5,4 +5,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+/* shell interactive prototype*/
+void interactive_mode(void);
+void no_interactive_mode(void);
+
 #endif
