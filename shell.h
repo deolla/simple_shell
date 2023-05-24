@@ -5,14 +5,17 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-/* shell interactive prototype*/
+/* Shell interactive prototype*/
 void interactive_mode(void);
 void no_interactive_mode(void);
 
-/* interactive mode */
+/* Interactive mode */
 void interactive_mode(void);
 
-/* read line prototype */
+/* Read line prototype */
 char *read_command(void);
+
+/* Tokenising Prototype */
+char **parse_command(char *input);
 
 #endif
