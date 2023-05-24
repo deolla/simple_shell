@@ -17,5 +17,7 @@ char *read_command(void);
 
 /* Tokenising Prototype */
 char **parse_command(char *input);
+int updated_process(char **argv);
+void no_interactive_mode(void);
 
 #endif
