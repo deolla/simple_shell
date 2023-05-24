@@ -9,4 +9,7 @@
 void interactive_mode(void);
 void no_interactive_mode(void);
 
+/*read line prototype*/
+char *read_command(void);
+
 #endif
