@@ -4,18 +4,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 
-/* Shell interactive prototype*/
+/*~ Define Macro ~*/
+#define POP_DEL " \t\r\n\a"
+
+/*~ Shell interactive prototype ~*/
 void interactive_mode(void);
 void no_interactive_mode(void);
 
-/* Interactive mode */
-void interactive_mode(void);
-
-/* Read line prototype */
+/*~ Interactive mode ~*/
 char *read_command(void);
-
-/* Tokenising Prototype */
 char **parse_command(char *input);
+int execute_command(char **argv);
+
+/*~ String ~*/
+size_t _strlen(const char *str);
+int _strcmp(const char *str1, const char *str2);
 
 #endif

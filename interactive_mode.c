@@ -7,11 +7,11 @@
  */
 void interactive_mode(void)
 {
-	char *input, **length;
-	int condition = 1;
+	char *input, **lenght;
+	int condition = -1;
 	char *prompt = "~$ ";
 
-	while (true)
+	while (condition == -1)
 	{
 		write(STDOUT_FILENO, prompt, strlen(prompt));
 		input = read_command();
@@ -21,10 +21,6 @@ void interactive_mode(void)
 		free(input);
 		free(lenght);
 
-		if (condition == -1)
-		{
-			write(STDOUT_FILENO, prompt, strlen(prompt))
-		}
 	}
 	if (condition >= 0)
 	{

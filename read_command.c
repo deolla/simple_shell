@@ -1,9 +1,9 @@
 #include "shell.h"
 
-/*
- * read_command - read user input
+/**
+ * read_command - read user input.
  *
- * Return: a pointer to a str
+ * Return: The command input string.
  */
 char *read_command(void)
 {
