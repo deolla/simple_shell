@@ -6,7 +6,7 @@
  *
  * Return: 1 or 0 if failed.
  */
-int my_cd(void)
+int my_env(void)
 {
 	int cindy = 0;
 
