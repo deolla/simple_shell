@@ -1,4 +1,4 @@
-#inlcude "shell.h"
+#include "shell.h"
 
 /**
  * interactive_mode - shell line interpreter.
@@ -15,7 +15,7 @@ void interactive_mode(void)
 	{
 		write(STDOUT_FILENO, prompt, strlen(prompt));
 		input = read_command();
-		argc = parse_command(input);
+		lenght = parse_command(input);
 		condition = execute_command(lenght);
 
 		free(input);

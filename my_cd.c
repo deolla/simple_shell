@@ -8,7 +8,7 @@
  */
 int my_cd(char **argv)
 {
-	if(argv[1] == NULL)
+	if (argv[1] == NULL)
 	{
 		write(STDERR_FILENO, "expected argument to \"cd\"\n", 30);
 	}
@@ -32,10 +32,10 @@ int my_exit(char **argv)
 {
 	if (argv[1])
 	{
-		return(atoi(argv[1]));
+		return (atoi(argv[1]));
 	}
 	else
 	{
-		return(0);
+		return (0);
 	}
 }

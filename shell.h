@@ -27,12 +27,12 @@ int _strcmp(const char *str1, const char *str2);
 /* ~ new_prcess ~ */
 int updated_process(char **argv);
 
-/* ~ no_interactive protoype ~ */ 
+/* ~ no_interactive protoype ~ */
 void no_interactive_mode(void);
 char *interpret_stream(void);
-int my_env(void);
-int my_help(char **argc);
-int my_cd(argc);
-int my_exit(char **argv)
 
+int my_cd(char **argv);
+int my_env(char **argv);
+int my_help(char **argv);
+int my_exit(char **argv);
 #endif

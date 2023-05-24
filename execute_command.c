@@ -8,7 +8,7 @@
  */
 int execute_command(char **argv)
 {
-	int cindy = 0;
+	unsigned long int cindy = 0;
 	char *builtin[] = {
 		"cd",
 		"env",
@@ -27,7 +27,7 @@ int execute_command(char **argv)
 		return (-1);
 	}
 
-	for (; cindy < sizeof(builtin[cindy]) == 0)
+	for (; cindy < sizeof(builtin) / sizeof(char *); cindy++)
 	{
 		if (strcmp(argv[0], builtin[cindy]) == 0)
 		{

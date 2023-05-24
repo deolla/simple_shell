@@ -7,9 +7,7 @@
  */
 char *interpret_stream(void)
 {
-	int cindy = 0;
-	int size = 1024;
-	int alpha;
+	int cindy = 0, size = 1024, alpha;
 	char *input = malloc(sizeof(char) * size);
 	char *error = "error allocating memory \n";
 	char *err = " error reallocating memory \n";
@@ -37,7 +35,6 @@ char *interpret_stream(void)
 			input[cindy] = alpha;
 		}
 		cindy++;
-
 		if (cindy >= size)
 		{
 			size += size;
@@ -45,7 +42,7 @@ char *interpret_stream(void)
 			if (input == NULL)
 			{
 				write(STDERR_FILENO, err, strlen(err));
-				exit (EXIT_FAILURE);
+				exit(EXIT_FAILURE);
 			}
 		}
 	}

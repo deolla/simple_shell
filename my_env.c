@@ -2,18 +2,19 @@
 
 /**
  * my_env - search environment variable.
- * @argc: arguments.
+ * @argv: arguments.
  *
  * Return: 1 or 0 if failed.
  */
-int my_env(void)
+int my_env(char **argv)
 {
 	int cindy = 0;
+	(void)(**argv);
 
-	while(environ[cindy])
+	while (environ[cindy])
 	{
 		write(STDOUT_FILENO, environ[cindy], strlen(environ[cindy]));
-		write(STDOUT_FILEOUT, "\n", 1);
+		write(STDOUT_FILENO, "\n", 1);
 		cindy++;
 	}
 	return (-1);
@@ -21,20 +22,20 @@ int my_env(void)
 
 /**
  * my_help -  print man page.
- * @argc: char parameter.
+ * @argv: char parameter.
  *
  * Return: 1 or 0 if failed.
  */
-int my_help(char **argc)
+int my_help(char **argv)
 {
+	unsigned long int cindy = 0;
 	char *builtin[] = {
 		"cd",
 		"env",
 		"help",
 		"exit"
 	};
-	long unsigned int cindy = 0;
-	(void)(**argc);
+	(void)(**argv);
 
 	write(STDOUT_FILENO, "\n---help ---\n", 13);
 	write(STDOUT_FILENO, "Type a command \n", 16);
@@ -42,9 +43,9 @@ int my_help(char **argc)
 	for (; cindy < sizeof(builtin) / sizeof(char *); cindy++)
 	{
 		write(STDOUT_FILENO, "  -> ", 5);
-		write(STDOUT_FILENO, builtin[cindy], strlen(builtin[cind]));
+		write(STDOUT_FILENO, builtin[cindy], strlen(builtin[cindy]));
 		write(STDOUT_FILENO, "\n", 1);
 	}
-	write(STDOUT_FILENO, "Use the man command for inormation on other programs.\n\n", 57);
+	write(STDOUT_FILENO, "Use the man command for information.\n\n", 38);
 	return (-1);
 }
