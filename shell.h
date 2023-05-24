@@ -24,6 +24,5 @@ int _strcmp(const char *str1, const char *str2);
 int updated_process(char **argv);
 void no_interactive_mode(void);
 char *interpret_stream(void);
-int my_cd(char **argv);
 int my_cd(void);
 #endif
