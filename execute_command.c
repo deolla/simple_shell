@@ -19,7 +19,7 @@ int execute_command(char **argv)
 		&my_cd,
 		&my_env,
 		&my_help,
-		&own_exit
+		&my_exit
 	};
 
 	if (argv[0] == NULL)
