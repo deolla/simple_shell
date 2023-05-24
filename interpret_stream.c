@@ -14,7 +14,7 @@ char *interpret_stream(void)
 
 	if (input == NULL)
 	{
-		write(STDERR_FILENO, error, strlen(error));
+		write(STDERR_FILENO, error, _strlen(error));
 		exit(EXIT_FAILURE);
 	}
 	while (1)
@@ -41,7 +41,7 @@ char *interpret_stream(void)
 			input = realloc(input, size);
 			if (input == NULL)
 			{
-				write(STDERR_FILENO, err, strlen(err));
+				write(STDERR_FILENO, err, _strlen(err));
 				exit(EXIT_FAILURE);
 			}
 		}
