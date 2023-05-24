@@ -32,6 +32,10 @@ int my_exit(char **argv)
 {
 	if (argv[1])
 	{
-		return (0);
+		return(atoi(argv[1]));
+	}
+	else
+	{
+		return(0);
 	}
 }
