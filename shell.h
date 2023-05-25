@@ -24,6 +24,10 @@ int execute_command(char **argv);
 size_t _strlen(const char *str);
 int _strcmp(const char *str1, const char *str2);
 
+/* ~ Realloc prototype ~ */
+void *_realloc(void *ptr, size_t size);
+void *my_memcpy(void *dest, const void *src, size_t size);
+
 /* ~ new_prcess ~ */
 int updated_process(char **argv);
 
