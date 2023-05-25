@@ -21,11 +21,11 @@ char **parse_command(char *input);
 int execute_command(char **argv);
 
 /* ~ String ~ */
-size_t _strlen(const char *str);
-int _strcmp(const char *str1, const char *str2);
+size_t strlen(const char *str);
+int strcmp(const char *str1, const char *str2);
 
 /* ~ Realloc prototype ~ */
-void *_realloc(void *ptr, size_t size);
+void *realloc(void *ptr, size_t size);
 void *my_memcpy(void *dest, const void *src, size_t size);
 
 /* ~ new_prcess ~ */

@@ -29,7 +29,7 @@ int execute_command(char **argv)
 
 	for (; cindy < sizeof(builtin) / sizeof(char *); cindy++)
 	{
-		if (_strcmp(argv[0], builtin[cindy]) == 0)
+		if (strcmp(argv[0], builtin[cindy]) == 0)
 		{
 			return ((*built_func[cindy])(argv));
 		}

@@ -14,7 +14,7 @@ char *interpret_stream(void)
 
 	if (input == NULL)
 	{
-		write(STDERR_FILENO, error, _strlen(error));
+		write(STDERR_FILENO, error, strlen(error));
 		exit(EXIT_FAILURE);
 	}
 	while (1)
@@ -38,10 +38,10 @@ char *interpret_stream(void)
 		if (cindy >= size)
 		{
 			size += size;
-			input = _realloc(input, size);
+			input = realloc(input, size);
 			if (input == NULL)
 			{
-				write(STDERR_FILENO, err, _strlen(err));
+				write(STDERR_FILENO, err, strlen(err));
 				exit(EXIT_FAILURE);
 			}
 		}

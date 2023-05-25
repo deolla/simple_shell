@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * _strlen - determine the length of a null-terminated string.
+ * strlen - determine the length of a null-terminated string.
  * @str: a pointer to the beginning of the string.
  *
  * Return: the number of character in the string.
  */
-size_t _strlen(const char *str)
+size_t strlen(const char *str)
 {
 	const char *ptr = str;
 
@@ -18,13 +18,13 @@ size_t _strlen(const char *str)
 }
 
 /**
- * _strcmp - compares two null - terminated strings.
+ * strcmp - compares two null - terminated strings.
  * @str1: first pointer to be compared.
  * @str2: second pointer to be compared.
  *
  * Return: an integer that indicate the result of th caparison.
  */
-int _strcmp(const char *str1, const char *str2)
+int strcmp(const char *str1, const char *str2)
 {
 	while (*str1 && (*str1 == *str2))
 	{

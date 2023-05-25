@@ -13,7 +13,7 @@ void interactive_mode(void)
 
 	while (condition == -1)
 	{
-		write(STDOUT_FILENO, prompt, _strlen(prompt));
+		write(STDOUT_FILENO, prompt, strlen(prompt));
 		input = read_command();
 		lenght = parse_command(input);
 		condition = execute_command(lenght);
