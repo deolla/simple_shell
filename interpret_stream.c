@@ -9,12 +9,12 @@ char *interpret_stream(void)
 {
 	int cindy = 0, size = 1024, alpha;
 	char *input = malloc(sizeof(char) * size);
-	/* char *error = "error allocating memory \n"; */
-	/* char *err = " error reallocating memory \n"; */
+	char *error = "error allocating memory \n";
+	char *err = " error reallocating memory \n";
 
 	if (input == NULL)
 	{
-		fprintf(stderr, "allocation of memory failed");
+		write(STDERR_FILENO, error, strlen(error));
 		exit(EXIT_FAILURE);
 	}
 	while (1)
@@ -41,7 +41,7 @@ char *interpret_stream(void)
 			input = realloc(input, size);
 			if (input == NULL)
 			{
-				fprintf(stderr, "reallocationof memory failed");
+				write(STDERR_FILENO, err, strlen(err));
 				exit(EXIT_FAILURE);
 			}
 		}
