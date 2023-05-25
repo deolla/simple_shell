@@ -38,7 +38,7 @@ char *interpret_stream(void)
 		if (cindy >= size)
 		{
 			size += size;
-			input = realloc(input, size);
+			input = _realloc(input, size);
 			if (input == NULL)
 			{
 				write(STDERR_FILENO, err, _strlen(err));
