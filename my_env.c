@@ -29,13 +29,14 @@ int my_env(char **argv)
 int my_help(char **argv)
 {
 	unsigned long int cindy = 0;
+	(void)(**argv);
+
 	char *builtin[] = {
 		"cd",
 		"env",
 		"help",
 		"exit"
 	};
-	(void)(**argv);
 
 	write(STDOUT_FILENO, "\n---help ---\n", 13);
 	write(STDOUT_FILENO, "Type a command \n", 16);
