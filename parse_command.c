@@ -15,7 +15,7 @@ char **parse_command(char *input)
 
 	if (!toks)
 	{
-		write(STDERR_FILENO, "error allocating memory: toks\n", 30);
+		fprintf(stderr, "error allocating memory: toks\n");
 		exit(EXIT_FAILURE);
 	}
 	tok = strtok(input, POP_DEL);
@@ -33,7 +33,7 @@ char **parse_command(char *input)
 			toks = realloc(toks, size * sizeof(char *));
 			if (!toks)
 			{
-				write(STDERR_FILENO, "error reallocating memory: toks\n", 32);
+				fprintf(stderr, "error reallocating memory: toks\n");
 			       exit(EXIT_FAILURE);
 			}
 		}
